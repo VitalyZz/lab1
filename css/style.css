@@ -1,0 +1,204 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #202430;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.container {
+    padding: 20px;
+}
+
+.wrapper_actions {
+    display: flex;
+}
+
+.wrapper_actions > div:not(:last-child) {
+    margin-right: 20px;
+}
+
+.wrapper_actions > div {
+    padding: 20px 30px;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #202430;
+    transition: .3s;
+}
+
+.firstAction {
+    background-color: #55ff55;
+}
+
+.firstAction:hover {
+    background-color: #28c728;
+    box-shadow: 0 0 15px 3px #28c728;
+    transition: .3s;
+}
+
+.secondAction {
+    background-color: #33ffe4;
+}
+
+.secondAction:hover {
+    background-color: #15c2ab;
+    box-shadow: 0 0 15px 3px #15c2ab;
+    transition: .3s;
+}
+
+.thirdAction {
+    background-color: #be5dff;
+}
+
+.thirdAction:hover {
+    background-color: #8e2ece;
+    box-shadow: 0 0 15px 3px #8e2ece;
+    transition: .3s;
+}
+
+.firstShadow {
+    box-shadow: 0 0 15px 3px #55ff55;
+}
+
+.secondShadow {
+    box-shadow: 0 0 15px 3px #15c2ab;
+}
+
+.thirdShadow {
+    box-shadow: 0 0 15px 3px #be5dff;
+}
+
+.enterValues {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.firstActionValue, .secondActionValue, .thirdActionValue {
+    font-size: 30px;
+    display: inline-block;
+    width: 40px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input {
+    width: 50px;
+}
+
+.wrapperFirstActionValue, .wrapperSecondActionValue, .wrapperThirdActionValue {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputsForFirstAction, .inputsForSecondAction, .inputsForThirdAction {
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+.wpfirstAction, .wpSecondAction, .wpThirdAction {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.titleDimensions {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.enterDimensions {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.wrapperDimensions {
+    display: flex;
+}
+
+.wrapperDimensions > .x {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wrapperDimensions > input {
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+.buttonConfirm {
+    padding: 10px 40px;
+    font-size: 19px;
+    border: none;
+    background-color: #4340ff;
+    margin-left: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+    outline: none;
+}
+
+.buttonConfirm:hover {
+    background-color: #3432d3;
+}
+
+.buttonOutput {
+    padding: 10px 40px;
+    font-size: 19px;
+    border: none;
+    background-color: #4340ff;
+    margin-left: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+    outline: none;
+    margin-top: 15px;
+}
+
+.buttonOutput:hover {
+    background-color: #3432d3;
+}
+
+.afterClickButton, .output {
+    display: none;
+}
+
+.firstSubstitution {
+    display: block;
+}
+
+.secondSubstitution {
+    display: none;
+}
+
+.thirdSubstitution {
+    display: none;
+}
+
+.errorDimensions {
+    margin-left: 40px;
+    font-size: 18px;
+    background-color: #ff000036;
+    padding: 10px 20px;
+    border: 3px solid #ff1b1b;
+    color: #ff1b1b;
+    display: none;
+}
