@@ -26,50 +26,25 @@ body {
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    color: #202430;
     transition: .3s;
 }
 
-.firstAction {
-    background-color: #55ff55;
+.firstAction, .secondAction, .thirdAction {
+    background-color: #757575;
+    color: #141519;
+    box-shadow: 0 0 15px 3px #757575;
 }
 
-.firstAction:hover {
+.firstAction:hover, .secondAction:hover, .thirdAction:hover {
     background-color: #28c728;
     box-shadow: 0 0 15px 3px #28c728;
     transition: .3s;
 }
 
-.secondAction {
-    background-color: #33ffe4;
-}
-
-.secondAction:hover {
-    background-color: #15c2ab;
-    box-shadow: 0 0 15px 3px #15c2ab;
-    transition: .3s;
-}
-
-.thirdAction {
-    background-color: #be5dff;
-}
-
-.thirdAction:hover {
-    background-color: #8e2ece;
-    box-shadow: 0 0 15px 3px #8e2ece;
-    transition: .3s;
-}
-
 .firstShadow {
+    background-color: #28c728;
     box-shadow: 0 0 15px 3px #55ff55;
-}
-
-.secondShadow {
-    box-shadow: 0 0 15px 3px #15c2ab;
-}
-
-.thirdShadow {
-    box-shadow: 0 0 15px 3px #be5dff;
+    color: #202430;
 }
 
 .enterValues {
@@ -94,10 +69,14 @@ input {
     width: 50px;
 }
 
-.wrapperFirstActionValue, .wrapperSecondActionValue, .wrapperThirdActionValue {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
+.wrapperFirstActionValue1, .wrapperSecondActionValue1, .wrapperThirdActionValue1,
+.wrapperFirstActionValue2, .wrapperSecondActionValue2, .wrapperThirdActionValue2,
+.wrapperFirstActionValue3, .wrapperSecondActionValue3, .wrapperThirdActionValue3 {
+    margin-left: 10px;
+}
+
+th {
+    font-size: 30px;
 }
 
 .inputsForFirstAction, .inputsForSecondAction, .inputsForThirdAction {
@@ -107,7 +86,7 @@ input {
     outline: none;
 }
 
-.wpfirstAction, .wpSecondAction, .wpThirdAction {
+.wpfirstAction {
     display: flex;
     align-items: flex-start;
     margin-top: 15px;
@@ -158,7 +137,7 @@ input {
     background-color: #3432d3;
 }
 
-.buttonOutput {
+.buttonOutput1, .buttonOutput2, .buttonOutput3 {
     padding: 10px 40px;
     font-size: 19px;
     border: none;
@@ -173,11 +152,11 @@ input {
     margin-top: 15px;
 }
 
-.buttonOutput:hover {
+.buttonOutput1:hover, .buttonOutput2:hover, .buttonOutput3:hover {
     background-color: #3432d3;
 }
 
-.afterClickButton, .output {
+.afterClickButton1, .output1, .afterClickButton2, .output2, .afterClickButton3, .output3 {
     display: none;
 }
 
@@ -186,11 +165,11 @@ input {
 }
 
 .secondSubstitution {
-    display: none;
+    display: block;
 }
 
 .thirdSubstitution {
-    display: none;
+    display: block;
 }
 
 .errorDimensions {
@@ -201,4 +180,8 @@ input {
     border: 3px solid #ff1b1b;
     color: #ff1b1b;
     display: none;
+}
+
+table {
+    border-spacing: 0px;
 }
