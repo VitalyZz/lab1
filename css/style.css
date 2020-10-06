@@ -72,7 +72,7 @@ input {
 .wrapperFirstActionValue1, .wrapperSecondActionValue1, .wrapperThirdActionValue1,
 .wrapperFirstActionValue2, .wrapperSecondActionValue2, .wrapperThirdActionValue2,
 .wrapperFirstActionValue3, .wrapperSecondActionValue3, .wrapperThirdActionValue3 {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 th {
@@ -84,6 +84,8 @@ th {
     font-weight: bold;
     border: none;
     outline: none;
+    text-align: center;
+    padding: 3px;
 }
 
 .wpfirstAction {
@@ -182,6 +184,23 @@ th {
     display: none;
 }
 
+.output1, .output2, .output3 {
+    margin-top: 30px;
+}
+
 table {
     border-spacing: 0px;
+}
+
+.outputTable {
+    border-spacing: 2px;
+    margin-right: 3px;
+}
+
+.outputTable td {
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 3px 11px;
 }

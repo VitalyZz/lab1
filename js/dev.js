@@ -52,6 +52,10 @@ firstAction.addEventListener('click', e => {
     afterClickButton3.style.display = 'none';
 
     document.querySelector('.dimensionsInput').value = '';
+
+    output1.style.display = 'none';
+    output2.style.display = 'none';
+    output3.style.display = 'none';
 });
 
 secondAction.addEventListener('click', e => {
@@ -74,6 +78,10 @@ secondAction.addEventListener('click', e => {
     afterClickButton3.style.display = 'none';
 
     document.querySelector('.dimensionsInput').value = '';
+
+    output1.style.display = 'none';
+    output2.style.display = 'none';
+    output3.style.display = 'none';
 });
 
 thirdAction.addEventListener('click', e => {
@@ -96,11 +104,17 @@ thirdAction.addEventListener('click', e => {
     afterClickButton3.style.display = 'none';
 
     document.querySelector('.dimensionsInput').value = '';
+
+    output1.style.display = 'none';
+    output2.style.display = 'none';
+    output3.style.display = 'none';
 });
 
 const errorDimensions = document.querySelector('.errorDimensions');
 
-buttonConfirm.addEventListener('click', function() {
+buttonConfirm.addEventListener('click', btnComfirmFunc);
+
+function btnComfirmFunc() {
     wrapperFirstActionValue1.innerHTML = '';
     wrapperSecondActionValue1.innerHTML = '';
     wrapperThirdActionValue1.innerHTML = '';
@@ -153,7 +167,8 @@ buttonConfirm.addEventListener('click', function() {
             const table3_1 = createVector(dimensionsValue, 'inputsForThirdAction', 't&#773;');
             wrapperThirdActionValue1.appendChild(table3_1);
 
-            console.log('firstSubstitution');
+            // Code for first substitution
+            
         }
 
         else if (numOfSubstitution === 'secondSubstitution') {
@@ -171,7 +186,8 @@ buttonConfirm.addEventListener('click', function() {
             const table3_2 = createVector(dimensionsValue, 'inputsForThirdAction', 't&#773;');
             wrapperThirdActionValue2.appendChild(table3_2);
 
-            console.log('secondSubstitution');
+            // Code for second substitution
+            
         }
 
         else if (numOfSubstitution === 'thirdSubstitution') {
@@ -189,10 +205,11 @@ buttonConfirm.addEventListener('click', function() {
             const table3_3 = createVector(dimensionsValue, 'inputsForThirdAction', 't&#773;');
             wrapperThirdActionValue3.appendChild(table3_3);
 
-            console.log('thirdSubstitution');
+            // Code for third substitution
+            
         }
     }
-});
+}
 
 buttonOutput1.addEventListener('click', function() {
     output1.style.display = 'block';
@@ -231,4 +248,265 @@ function changeShadow(e) {
         firstAction.classList.remove('firstShadow')
         secondAction.classList.remove('firstShadow')
     }
+}
+
+test();
+
+function test() {
+    let length = document.querySelector('.dimensionsInput').value = 3;
+    btnComfirmFunc();
+    output1.style.display = 'flex';
+    
+    let inputsForX = document.querySelectorAll('.inputsForFirstAction');
+    inputsForX[0].value = 20;
+    inputsForX[1].value = 30;
+    inputsForX[2].value = 50;
+    inputsForX[3].value = 10;
+    inputsForX[4].value = 10;
+    inputsForX[5].value = 30;
+    inputsForX[6].value = 60;
+    inputsForX[7].value = 30;
+    inputsForX[8].value = 10;
+
+    let matrixX = [];
+    let matrixY = [];
+    let matrixt = [];
+
+    for(let i = 0; i < length; i++) {
+        matrixX[i] = [];
+    }
+
+    for(let i = 0, j = 0; i < length * length; i++) {
+        matrixX[j].push(parseInt(inputsForX[i].value));
+        if ((i + 1) % length === 0) j++;
+    }
+
+    let inputsForYT = document.querySelectorAll('.inputsForSecondAction');
+    inputsForYT[0].value = 100;
+    inputsForYT[1].value = 200;
+    inputsForYT[2].value = 300;
+
+    inputsForYT[3].value = 1.2;
+    inputsForYT[4].value = 1.4;
+    inputsForYT[5].value = 1.9;
+
+    matrixt[0] = [];
+
+    for(let i = 0; i < length + length; i++) {
+        if (i < (length)) matrixY.push(parseInt(inputsForYT[i].value));
+        else matrixt[0].push(parseFloat(inputsForYT[i].value));
+    }
+
+    // Находим X вектор
+    let reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    let matrixx = [];
+
+    for(let i = 0; i < length; i++) {
+        matrixx.push(matrixX[i].reduce(reducer) + matrixY[i]);
+    }
+
+    let table = document.createElement('table');
+    table.classList.add('outputTable');
+
+    let trth = document.createElement('tr');
+    let th = document.createElement('th');
+
+    th.innerHTML = 'X&#773;';
+    trth.appendChild(th);
+    table.appendChild(trth);
+
+    for(let i = 0; i < length; i++) {
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
+        td.textContent = matrixx[i];
+        tr.appendChild(td);
+        table.appendChild(tr);
+    }
+
+    output1.appendChild(table);
+
+    // Вычисляем матрицу А
+
+    let matrixA = [];
+
+    for(let i = 0; i < length; i++) {
+        matrixA[i] = []
+    }
+
+    for(let i = 0; i < length; i++) {
+        for(let j = 0; j < length; j++) {
+            matrixA[i].push(matrixX[i][j] / matrixx[j]);
+        }
+    }
+
+    table = document.createElement('table');
+    table.classList.add('outputTable');
+
+    trth = document.createElement('tr');
+    th = document.createElement('th');
+
+    th.innerHTML = 'A';
+    th.colSpan = length;
+    trth.appendChild(th);
+    table.appendChild(trth);
+
+    for(let i = 0; i < length; i++) {
+        tr = document.createElement('tr');
+        for(let j = 0; j < length; j++) {
+            td = document.createElement('td');
+            td.textContent = matrixA[i][j];
+            tr.appendChild(td);
+            table.appendChild(tr);
+        }
+    }
+
+    output1.appendChild(table);
+
+    // Вычисляем матрицу B
+
+    let matrixE = [];
+
+    for(let i = 0; i < length; i++) {
+        matrixE[i] = []
+    }
+
+    for(let i = 0; i < length; i++) {
+        for(let j = 0; j < length; j++) {
+            i === j ? matrixE[i][j] = 1 : matrixE[i][j] = 0;
+        }
+    }
+
+    let matrixB = InverseMatrix(SubtractionMatrix(matrixE, matrixA));
+
+    for(let i = 0; i < length; i++) {
+        for(let j = 0; j < length; j++) {
+            matrixB[i][j] = parseFloat(matrixB[i][j].toFixed(4));
+        }
+    }
+
+    table = document.createElement('table');
+    table.classList.add('outputTable');
+
+    trth = document.createElement('tr');
+    th = document.createElement('th');
+
+    th.innerHTML = 'B';
+    th.colSpan = length;
+    trth.appendChild(th);
+    table.appendChild(trth);
+
+    for(let i = 0; i < length; i++) {
+        tr = document.createElement('tr');
+        for(let j = 0; j < length; j++) {
+            td = document.createElement('td');
+            td.textContent = matrixB[i][j];
+            tr.appendChild(td);
+            table.appendChild(tr);
+        }
+    }
+
+    output1.appendChild(table);
+    
+    // Вычисляем матрицу C
+
+    let matrixC = SubtractionMatrix(matrixB, matrixE);
+
+    for(let i = 0; i < length; i++) {
+        for(let j = 0; j < length; j++) {
+            matrixC[i][j] = parseFloat(matrixC[i][j].toFixed(4));
+        }
+    }
+
+    table = document.createElement('table');
+    table.classList.add('outputTable');
+
+    trth = document.createElement('tr');
+    th = document.createElement('th');
+
+    th.innerHTML = 'C';
+    th.colSpan = length;
+    trth.appendChild(th);
+    table.appendChild(trth);
+
+    for(let i = 0; i < length; i++) {
+        tr = document.createElement('tr');
+        for(let j = 0; j < length; j++) {
+            td = document.createElement('td');
+            td.textContent = matrixC[i][j];
+            tr.appendChild(td);
+            table.appendChild(tr);
+        }
+    }
+
+    output1.appendChild(table);
+
+    // Вычисляем вектор T
+
+    let vectorT = MultiplyMatrix(matrixt, matrixB);
+
+    for(let i = 0; i < length; i++) {
+        vectorT[0][i] = parseFloat(vectorT[0][i].toFixed(4));
+    }
+
+    table = document.createElement('table');
+    table.classList.add('outputTable');
+
+    trth = document.createElement('tr');
+    th = document.createElement('th');
+
+    th.innerHTML = 'T&#773;';
+    th.colSpan = length;
+    trth.appendChild(th);
+    table.appendChild(trth);
+
+    for(let i = 0; i < length; i++) {
+        tr = document.createElement('tr');
+        td = document.createElement('td');
+        td.textContent = vectorT[0][i];
+        tr.appendChild(td);
+        table.appendChild(tr);
+    }
+
+    output1.appendChild(table);
+
+    // Вычисляем вектор k
+
+    let vectork = [];
+
+    for(let i = 0; i < length; i++) {
+        vectork.push(matrixt[0][i] * matrixx[i]);
+    }
+
+    table = document.createElement('table');
+    table.classList.add('outputTable');
+
+    trth = document.createElement('tr');
+    th = document.createElement('th');
+
+    th.innerHTML = 'k&#773;';
+    th.colSpan = length;
+    trth.appendChild(th);
+    table.appendChild(trth);
+
+    for(let i = 0; i < length; i++) {
+        tr = document.createElement('tr');
+        td = document.createElement('td');
+        td.textContent = vectork[i];
+        tr.appendChild(td);
+        table.appendChild(tr);
+    }
+
+    output1.appendChild(table);
+
+    console.log(matrixX);
+    console.log(matrixY);
+    console.log(matrixt);
+    console.log(matrixx);
+    console.log(matrixA);
+    console.log(matrixE);
+    console.log(matrixB);
+    console.log(matrixC);
+    console.log(vectorT);
+    console.log(vectork);
 }

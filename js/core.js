@@ -16,7 +16,7 @@ function createMatrix(dimensionsValue, inputClass, letter) {
             const td = document.createElement('td');
 
             const input = document.createElement('input');
-            input.type = 'number';
+            input.type = 'float';
             input.classList.add('inputsForFirstAction');
 
             td.appendChild(input);
@@ -46,7 +46,7 @@ function createVector(dimensionsValue, inputClass, letter) {
         const td = document.createElement('td');
 
         const input = document.createElement('input');
-        input.type = 'number';
+        input.type = 'float';
         input.classList.add('inputsForSecondAction');
 
         td.appendChild(input);
