@@ -13,10 +13,29 @@ body {
 
 .wrapper_actions {
     display: flex;
+    align-items: flex-start;
 }
 
 .wrapper_actions > div:not(:last-child) {
     margin-right: 20px;
+}
+
+.fill {
+    background-color: #3ee4ff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #202430;
+    margin-left: 40px;
+    transition: .3s;
+    cursor: pointer;
+    outline: none;
+}
+
+.fill:hover {
+    background-color: #11b9d3;
+    transition: .3s;
 }
 
 .wrapper_actions > div {
@@ -30,9 +49,9 @@ body {
 }
 
 .firstAction, .secondAction, .thirdAction {
-    background-color: #757575;
+    background-color: #b9b9b9;
     color: #141519;
-    box-shadow: 0 0 15px 3px #757575;
+    box-shadow: 0 0 15px 3px #b9b9b9;
 }
 
 .firstAction:hover, .secondAction:hover, .thirdAction:hover {
@@ -66,7 +85,7 @@ input::-webkit-inner-spin-button {
 }
 
 input {
-    width: 50px;
+    width: 90px;
 }
 
 .wrapperFirstActionValue1, .wrapperSecondActionValue1, .wrapperThirdActionValue1,
@@ -119,6 +138,8 @@ th {
     font-weight: bold;
     border: none;
     outline: none;
+    text-align: center;
+    width: 50px;
 }
 
 .buttonConfirm {
